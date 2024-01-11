@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useEffect } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+// Prevent native splash screen from autohiding before App component declaration
+SplashScreen.preventAutoHideAsync();
+
+const App = () => {
+	useEffect(() => {
+		setTimeout(async () => {
+			await SplashScreen.hideAsync();
+		}, 2000);
+	}, []);
+
+	return (
+		<View style={styles.container}>
+			<Text style={styles.text}>SplashScreen Demo! 👋</Text>
+		</View>
+	);
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+		backgroundColor: "#aabbcc",
+	},
+	text: {
+		color: "white",
+		fontWeight: "bold",
+	},
 });
+
+export default App;

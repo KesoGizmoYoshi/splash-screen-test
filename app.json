@@ -1,11 +1,17 @@
 {
-  "expo": {
-    "name": "splash-screen-test",
-    "slug": "splash-screen-test",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "splash-screen-test"
+	"expo": {
+		"name": "splash-screen-test",
+		"slug": "splash-screen-test",
+		"version": "1.0.0",
+		"assetBundlePatterns": ["**/*"],
+		"splash": {
+			"image": "./splash.png",
+			"resizeMode": "cover",
+			"backgroundColor": "#ff0000"
+		},
+		"android": {
+			"package": "com.splashtest"
+		}
+	},
+	"name": "splash-screen-test"
 }
